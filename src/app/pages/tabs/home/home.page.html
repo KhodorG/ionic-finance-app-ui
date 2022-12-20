@@ -41,7 +41,33 @@
 				</div>
 			</ng-template>
 		</swiper>
-
 	</ion-row>
+
+	<ion-list class="transactions">
+		<ion-list-header>
+			<ion-label color="medium">Transactions</ion-label>
+		</ion-list-header>
+
+		<ion-item-group>
+			<ion-item lines="full" *ngFor="let transaction of transactions">
+				<ion-thumbnail slot="start" class="ion-text-center">
+					<ion-icon *ngIf="transaction.amount >= 0" color="success" size="large" name="arrow-up"></ion-icon>
+					<ion-icon *ngIf="transaction.amount < 0" color="danger" size="large" name="arrow-down"></ion-icon>
+					<!-- <img [src]="'./assets/img/' + (transaction.amount >= 0) ? 'up.png' : 'down.png'" alt=""> -->
+				</ion-thumbnail>
+				<ion-label>
+					<ion-text> {{ transaction.to }} </ion-text>
+					<p>
+						<ion-text>
+							{{ transaction.date | date: 'MMM d, y' }}
+						</ion-text>
+					</p>
+				</ion-label>
+				<ion-text slot="end">
+					{{ transaction.amount >= 0 ? '$' + transaction.amount : '-$' + (transaction.amount * -1) }}
+				</ion-text>
+			</ion-item>
+		</ion-item-group>
+	</ion-list>
 
 </ion-content>

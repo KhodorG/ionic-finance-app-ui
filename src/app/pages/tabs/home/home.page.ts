@@ -9,6 +9,7 @@ SwiperCore.use([Pagination])
 export class HomePage implements OnInit, AfterContentChecked {
 	accounts: any[] = [];
 	features: any[] = [];
+	transactions: any[] = [];
 	bannerConfig: SwiperOptions = {};
 	featureConfig: SwiperOptions = {};
 	constructor() { }
@@ -27,6 +28,14 @@ export class HomePage implements OnInit, AfterContentChecked {
 			{ id: 4, color: 'light', icon: 'newspaper', name: 'Bills' },
 			{ id: 5, color: 'warning', icon: 'card', name: 'Cards' },
 		];
+
+		this.transactions = [
+			{ id: 1, to: 'Piyush Ag.', date: '2022-05-22', amount: 5000 },
+			{ id: 2, to: 'Avinash', date: '2022-03-02', amount: 7000 },
+			{ id: 3, to: 'Catherine', date: '2022-07-28', amount: -3250 },
+			{ id: 4, to: 'Akil Ag.', date: '2022-05-22', amount: 1000 },
+			{ id: 5, to: 'Prem Ag.', date: '2022-05-22', amount: -800 },
+		]
 	}
 
 	ngAfterContentChecked(): void {
