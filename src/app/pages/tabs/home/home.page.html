@@ -1,9 +1,32 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>home</ion-title>
-  </ion-toolbar>
+<ion-header class="ion-no-border">
+	<ion-toolbar color="primary">
+		<ion-title mode="md" class="ion-no-padding">
+			<ion-label>
+				<ion-text color="tertiary">Welcome</ion-text>
+				<p>
+					<ion-text color="light"><strong>Nikhil Ag,</strong></ion-text>
+				</p>
+			</ion-label>
+		</ion-title>
+		<ion-avatar slot="end">
+			<img src="./assets/img/profil.jpg" alt="">
+		</ion-avatar>
+	</ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="primary">
+	<ion-row class="banners">
+		<swiper [config]="bannerConfig">
+			<ng-template swiperSlide *ngFor="let account of accounts">
+				<div align="center">
+					<ion-label>
+						<span>Total Balance </span>
+						<p class="acc-amt"><ion-text color="light">$ {{ account?.balance}} </ion-text></p>
+						<span> {{ account?.acc_no }} </span>
+					</ion-label>
+				</div>
+			</ng-template>
+		</swiper>
+	</ion-row>
 
 </ion-content>
