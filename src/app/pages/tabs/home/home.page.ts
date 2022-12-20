@@ -8,7 +8,9 @@ SwiperCore.use([Pagination])
 })
 export class HomePage implements OnInit, AfterContentChecked {
 	accounts: any[] = [];
+	features: any[] = [];
 	bannerConfig: SwiperOptions = {};
+	featureConfig: SwiperOptions = {};
 	constructor() { }
 
 	ngOnInit() {
@@ -17,6 +19,14 @@ export class HomePage implements OnInit, AfterContentChecked {
 			{ id: 2, acc_no: '4588534343', balance: '400000' },
 			{ id: 3, acc_no: '0098644233', balance: '900000' },
 		]
+
+		this.features = [
+			{ id: 1, color: 'tertiary', icon: 'paper-plane', name: 'Send' },
+			{ id: 2, color: 'danger', icon: 'send', name: 'Request' },
+			{ id: 3, color: 'success', icon: 'add-circle', name: 'Top-up' },
+			{ id: 4, color: 'light', icon: 'newspaper', name: 'Bills' },
+			{ id: 5, color: 'warning', icon: 'card', name: 'Cards' },
+		];
 	}
 
 	ngAfterContentChecked(): void {
@@ -24,7 +34,10 @@ export class HomePage implements OnInit, AfterContentChecked {
 			slidesPerView: 1,
 			pagination: { clickable: true }
 		}
-		console.log('ok')
+
+		this.featureConfig = {
+			slidesPerView: 3.5,
+		}
 	}
 
 }

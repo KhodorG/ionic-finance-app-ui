@@ -15,6 +15,7 @@
 </ion-header>
 
 <ion-content color="primary">
+
 	<ion-row class="banners">
 		<swiper [config]="bannerConfig">
 			<ng-template swiperSlide *ngFor="let account of accounts">
@@ -27,6 +28,20 @@
 				</div>
 			</ng-template>
 		</swiper>
+	</ion-row>
+
+	<ion-row class="ion-text-center feature-list">
+		<swiper [config]="featureConfig">
+			<ng-template swiperSlide *ngFor="let feature of features">
+				<div>
+					<ion-button slot="icon-only" [color]="feature?.color">
+						<ion-icon [name]="feature?.icon"></ion-icon>
+					</ion-button>
+					<ion-label> {{ feature?.name }} </ion-label>
+				</div>
+			</ng-template>
+		</swiper>
+
 	</ion-row>
 
 </ion-content>
